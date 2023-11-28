@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-Time Clock</title>
+  <style>
+    /* Style for the clock */
+    #clock {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<script>
+  // Function to update the clock time
+  function updateClock() {
+    var now = new Date(); // Get current time
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    // Add leading zeroes if less than 10
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    var currentTime = hours + ':' + minutes + ':' + seconds; // Format the time
+
+    document.getElementById('clock').innerText = currentTime; // Update the clock display
+
+    setTimeout(updateClock, 1000); // Update the clock every second
+  }
+
+  // Initial call to start the clock
+  updateClock();
+</script>
+
+</body>
+</html>

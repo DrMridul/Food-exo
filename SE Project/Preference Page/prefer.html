@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preference Page</title>
+    <link rel="stylesheet" href="prefer.css">
+
+</head>
+<body>
+    <div class="v4368_321181">
+        <span class="v4368_321182"><a style="color: rgba(66,107,31,1); text-decoration: none; " href="../Home page/index.html">Food-exo</a></span>
+        <span class="v4368_321183"><a style="color: rgba(0, 0, 0, 1); text-decoration: none;" href="../Menu Page/menu.html">Menu</a></span>
+        <span class="v4368_321184"><a style="color: rgba(0, 0, 0, 1); text-decoration: none;" href="../Login Page/login.html">My profile</a></span>
+        <span class="v4368_321185"><a style="color: rgba(0, 0, 0, 1); text-decoration: none;" href="../Redeem Page/redeem.html">Redeem Points</a></span>
+        <span class="v4368_321186"><a style="color: rgba(0, 0, 0, 1); text-decoration: none;" href="../Preference Page/prefer.html">Preferences</a></span>
+        <div class="v4368_321187">
+            <span class="v4368_321188"><a href="../Card page/card_page.html" style="text-decoration: none; color: rgba(255, 255, 255, 1);">My Card </a></span>
+        </div>
+    </div>
+
+    <div class="v4368_321177">
+        <span class="v4368_321179">Your Preference</span>
+        <div class="name"></div>
+    </div>
+
+    <div class="preference">Will you have Dinner today ?</div>
+    <div>
+        <select name="card_type" id="card_type">
+            <option value="Yes">Choose your answer</option>
+            <option value="Yes">Yes (By default)</option>
+            <option value="No">No</option>
+        </select>
+    </div>
+
+    <script>
+        document.getElementById('card_type').addEventListener('change', function() {
+            var selectedOption = this.value;
+            
+            // Save the preference in localStorage
+            localStorage.setItem('card_preference', selectedOption);
+            
+            // Redirect to the Card Page
+            window.location.href = '../Preference Page/card_page.html';
+        });
+    </script>
+
+    <div class="line"></div>
+
+    <div id="clock"></div>
+
+    <script>
+        // Function to update the clock time
+        function updateClock() {
+          var now = new Date(); // Get current time
+          var hours = now.getHours();
+          var minutes = now.getMinutes();
+          var seconds = now.getSeconds();
+      
+          // Add leading zeroes if less than 10
+          hours = hours < 10 ? '0' + hours : hours;
+          minutes = minutes < 10 ? '0' + minutes : minutes;
+          seconds = seconds < 10 ? '0' + seconds : seconds;
+      
+          var currentTime = hours + ':' + minutes + ':' + seconds; // Format the time
+      
+          document.getElementById('clock').innerText = currentTime; // Update the clock display
+      
+          setTimeout(updateClock, 1000); // Update the clock every second
+        }
+      
+        // Initial call to start the clock
+        updateClock();
+      </script>
+
+
+
+    
+</body>
+</html>
